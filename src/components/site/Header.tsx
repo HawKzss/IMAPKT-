@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Menu, X, Sparkles } from "lucide-react";
 import { NAV } from "@/data/site";
 import { useLang } from "@/lib/lang";
+import logo from "@/assets/logo.png";
 
 export function Header() {
   const [open, setOpen] = useState(false);
