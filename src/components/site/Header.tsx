@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Menu, X, Sparkles } from "lucide-react";
 import { NAV } from "@/data/site";
 import { useLang } from "@/lib/lang";
+import logo from "@/assets/logo.png";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -29,9 +30,13 @@ export function Header() {
         className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-5 py-4 lg:px-8"
       >
         <Link to="/" className="group flex items-center gap-2.5" onClick={() => setOpen(false)}>
-          <span className="gradient-fill grid size-9 place-items-center rounded-xl font-display text-lg font-bold">
-            I
-          </span>
+          <img
+            src={logo}
+            alt="Impakt Digital logo"
+            width={512}
+            height={512}
+            className="size-9 rounded-xl bg-secondary/60 p-1"
+          />
           <span className="font-display text-lg font-bold tracking-tight">
             Impakt <span className="gradient-text">Digital</span>
           </span>

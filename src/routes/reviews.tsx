@@ -24,7 +24,7 @@ export const Route = createFileRoute("/reviews")({
 
 function Reviews() {
   const [index, setIndex] = useState(0);
-  const active = TESTIMONIALS[index];
+  const active = TESTIMONIALS[index] ?? TESTIMONIALS[0]!;
   const move = (dir: number) =>
     setIndex((i) => (i + dir + TESTIMONIALS.length) % TESTIMONIALS.length);
 
