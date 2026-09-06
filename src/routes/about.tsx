@@ -98,6 +98,71 @@ function About() {
           ))}
         </div>
       </section>
+
+      <section className="mt-16" aria-labelledby="story">
+        <h2 id="story" className="font-display text-3xl font-bold">
+          Our story
+        </h2>
+        <ol className="mt-8 space-y-5 border-l border-border pl-6">
+          {STORY.map((s) => (
+            <li key={s.year} className="relative">
+              <span className="gradient-fill absolute -left-[31px] top-1.5 size-3 rounded-full" />
+              <p className="text-xs font-semibold uppercase tracking-widest text-primary">{s.year}</p>
+              <h3 className="mt-1 font-display text-lg font-semibold">{s.title}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{s.text}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section className="mt-16" aria-labelledby="team">
+        <h2 id="team" className="font-display text-3xl font-bold">
+          The team
+        </h2>
+        <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
+          Strategists, designers and press operators under one roof in Iringa. Photos coming soon.
+        </p>
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {TEAM.map((m) => (
+            <article key={m.name} className="glass-card p-6 text-center">
+              <span className="gradient-fill mx-auto grid size-16 place-items-center rounded-full font-display text-xl font-bold">
+                {m.initials}
+              </span>
+              <h3 className="mt-4 font-display text-base font-semibold">{m.name}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{m.role}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="glass-card mt-16 flex flex-wrap items-center justify-between gap-6 p-8">
+        <div>
+          <h2 className="font-display text-2xl font-bold">Ready to work with us?</h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Tell us about your project and get a free quote within one business day.
+          </p>
+        </div>
+        <Link
+          to="/contact"
+          className="gradient-fill inline-flex rounded-full px-5 py-3 text-sm font-semibold hover:glow-ring"
+        >
+          Get a free quote
+        </Link>
+      </section>
     </div>
   );
 }
+
+const STORY = [
+  { year: "2018", title: "A one-room design studio", text: "Impakt Digital opens in Iringa with a single workstation and local retail clients." },
+  { year: "2020", title: "Print floor added", text: "Large-format printing brought in-house, cutting client turnaround from weeks to days." },
+  { year: "2022", title: "Southern Highlands reach", text: "Regular production for brands across Mbeya, Njombe and Dodoma." },
+  { year: "2026", title: "150+ projects delivered", text: "Full-service branding, social media and packaging teams serving clients nationwide." },
+];
+
+const TEAM = [
+  { name: "Team member", role: "Creative Director", initials: "CD" },
+  { name: "Team member", role: "Brand Designer", initials: "BD" },
+  { name: "Team member", role: "Social Media Lead", initials: "SM" },
+  { name: "Team member", role: "Print Production Manager", initials: "PM" },
+];
