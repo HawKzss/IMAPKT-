@@ -43,7 +43,7 @@ function About() {
       </p>
       <p className="mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground">
         That combination is rare. Most agencies outsource print, and most printers can't strategise.
-        We do both, in-house, which is why turnaround is measured in days rather than weeks.
+        We do both, which is why our turnaround is measured in days rather than weeks.
       </p>
 
       <section className="glass-card mt-14 grid gap-8 p-6 lg:grid-cols-2 lg:p-10" aria-labelledby="hq">
