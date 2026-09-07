@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { NAV, SERVICES, SITE } from "@/data/site";
+import logoAsset from "@/assets/impakt-digital-logo.svg.asset.json";
 
 export function Footer() {
   const [email, setEmail] = useState("");
@@ -12,12 +13,14 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 lg:grid-cols-4 lg:px-8">
         <div>
           <div className="flex items-center gap-2.5">
-            <span className="gradient-fill grid size-9 place-items-center rounded-xl font-display text-lg font-bold">
-              I
-            </span>
-            <span className="font-display text-lg font-bold">
-              Impakt <span className="gradient-text">Digital</span>
-            </span>
+            <img
+              src={logoAsset.url}
+              alt="Impakt Digital logo"
+              width={273}
+              height={91}
+              loading="lazy"
+              className="h-12 w-auto rounded-md bg-foreground px-2 py-1"
+            />
           </div>
           <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
             A full-service digital marketing, design and branding agency in Iringa, Tanzania —
