@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Star, CheckCircle2, MapPin } from "lucide-react";
+import { useEffect, useState } from "react";
 import heroImage from "@/assets/hero.jpg";
+import heroPrinting from "@/assets/hero-printing.jpg";
 import { PORTFOLIO, SERVICES, SITE, STATS, TESTIMONIALS } from "@/data/site";
 import { useLang } from "@/lib/lang";
 
@@ -24,6 +26,36 @@ export const Route = createFileRoute("/")({
   }),
   component: Home,
 });
+
+const SLIDES = [
+  { src: heroImage, label: "Impakt Digital", alt: "Impakt Digital creative studio visual — glowing yellow and orange brand monolith" },
+  { src: heroPrinting, label: "Impakt Printing & Packaging", alt: "Impakt Printing & Packaging — custom boxes, stickers and banners" },
+];
+
+function HeroSlider() {
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    const t = setInterval(() => setI((v) => (v + 1) % SLIDES.length), 2000);
+    return () => clearInterval(t);
+  }, []);
+  return (
+    <div className="glass-card relative aspect-[3/2] w-full overflow-hidden p-2">
+      {SLIDES.map((s, idx) => (
+        <img
+          key={s.label}
+          src={s.src}
+          alt={s.alt}
+          width={1536}
+          height={1024}
+          className={`absolute inset-2 h-[calc(100%-1rem)] w-[calc(100%-1rem)] rounded-[inherit] object-cover transition-opacity duration-700 ${idx === i ? "opacity-100" : "opacity-0"}`}
+        />
+      ))}
+      <span className="absolute bottom-5 left-5 rounded-full border border-border bg-background/70 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-foreground backdrop-blur">
+        {SLIDES[i]?.label}
+      </span>
+    </div>
+  );
+}
 
 function Home() {
   const { lang } = useLang();
@@ -85,15 +117,7 @@ function Home() {
             </dl>
           </div>
 
-          <div className="relative">
-            <img
-              src={heroImage}
-              alt="Impakt Digital creative studio visual — glowing yellow and orange brand monolith"
-              width={1536}
-              height={1024}
-              className="glass-card w-full object-cover p-2"
-            />
-          </div>
+          <HeroSlider />
         </div>
       </section>
 
