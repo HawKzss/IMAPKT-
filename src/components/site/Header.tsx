@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Menu, X, Sparkles } from "lucide-react";
 import { NAV } from "@/data/site";
 import { useLang } from "@/lib/lang";
-import logoAsset from "@/assets/impakt-digital-logo.svg.asset.json";
+import { Logo } from "@/components/site/Logo";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -30,13 +30,7 @@ export function Header() {
         className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-5 py-4 lg:px-8"
       >
         <Link to="/" className="group flex items-center gap-2.5" onClick={() => setOpen(false)}>
-          <img
-            src={logoAsset.url}
-            alt="Impakt Digital logo"
-            width={273}
-            height={91}
-            className="h-10 w-auto rounded-md bg-foreground px-2 py-1"
-          />
+          <Logo className="h-9 w-auto" />
         </Link>
 
         <ul className="hidden items-center gap-1 lg:flex">
