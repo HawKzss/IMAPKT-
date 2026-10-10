@@ -51,7 +51,7 @@ function HeroSlider() {
         />
       ))}
       <span className="absolute bottom-5 left-5 rounded-full border border-border bg-background/70 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-foreground backdrop-blur">
-        {SLIDES[i].label}
+        {SLIDES[i]?.label}
       </span>
     </div>
   );
